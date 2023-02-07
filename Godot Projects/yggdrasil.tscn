@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://spiked ship 3. small.blue_.PNG" type="Texture" id=2]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 63.0
+height = 1.99997
+
+[node name="yggdrasil" type="Node2D"]
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 320, 257 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="player"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 0, -1 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="wall" parent="." instance=ExtResource( 3 )]
+position = Vector2( 158, 87 )
+
+[node name="wall2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 641, 119 )
+
+[node name="wall3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 210, 459 )
+scale = Vector2( 3, 1 )
